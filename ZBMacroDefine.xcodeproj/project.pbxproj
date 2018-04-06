@@ -26,6 +26,7 @@
 		CA359E99207742C2007C1F58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA359E9B207742C2007C1F58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA359E9C207742C2007C1F58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CA359EA72077452F007C1F58 /* MacroDefineHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefineHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		CA359E8C207742C2007C1F58 /* ZBMacroDefine */ = {
 			isa = PBXGroup;
 			children = (
+				CA359EA62077452F007C1F58 /* MacroDefineHeader */,
 				CA359E8D207742C2007C1F58 /* AppDelegate.h */,
 				CA359E8E207742C2007C1F58 /* AppDelegate.m */,
 				CA359E90207742C2007C1F58 /* ViewController.h */,
@@ -69,6 +71,14 @@
 				CA359E9C207742C2007C1F58 /* main.m */,
 			);
 			path = ZBMacroDefine;
+			sourceTree = "<group>";
+		};
+		CA359EA62077452F007C1F58 /* MacroDefineHeader */ = {
+			isa = PBXGroup;
+			children = (
+				CA359EA72077452F007C1F58 /* MacroDefineHeader.h */,
+			);
+			path = MacroDefineHeader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
