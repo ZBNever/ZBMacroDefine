@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ZBMacroDefine"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "开发中常用的宏定义"
   s.description  = <<-DESC
     存放开发中经常使用到的一些宏定义
