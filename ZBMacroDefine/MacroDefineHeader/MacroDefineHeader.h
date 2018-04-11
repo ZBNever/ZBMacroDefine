@@ -28,19 +28,19 @@
 #endif
 
 
-///2.获取通知中心
+//2.获取通知中心
 #define KNotificationCenter [NSNotificationCenter defaultCenter]
 
-///3.设置随机颜色
+//3.设置随机颜色
 #define KRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
-///4.设置RGB颜色/设置RGBA颜色
+//4.设置RGB颜色/设置RGBA颜色
 #define KRGBColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 #define KRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(r)/255.0 blue:(r)/255.0 alpha:a]
-/// clear背景颜色
+// clear背景颜色
 #define KClearColor [UIColor clearColor]
 
-///5.自定义高效率的 NSLog
+//5.自定义高效率的 NSLog
 #ifdef DEBUG
 #define KSLog(...) NSLog(@"%s 第%d行 \n %@\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
 #else
@@ -48,11 +48,11 @@
 
 #endif
 
-///6.弱引用/强引用
+//6.弱引用/强引用
 #define KWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define KStrongSelf(type)  __strong typeof(type) type = weak##type;
 
-///7.设置 view 圆角和边框
+//7.设置 view 圆角和边框
 #define KViewBorderRadius(View, Radius, Width, Color)\
 \
 [View.layer setCornerRadius:(Radius)];\
@@ -69,20 +69,20 @@
 [kWindow  makeToast:str duration:0.6 position:CSToastPositionCenter style:style];\
 kWindow.userInteractionEnabled = NO; \
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{\
-kWindow.userInteractionEnabled = YES;\
+        KWindow.userInteractionEnabled = YES;\
 });\
 
-///10.设置加载提示框（第三方框架：MBProgressHUD）
-/// 加载
+//10.设置加载提示框（第三方框架：MBProgressHUD）
+// 加载
 #define KShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
-/// 收起加载
-#define HideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
+// 收起加载
+#define KHideNetworkActivityIndicator()      [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
 // 设置加载
-#define NetworkActivityIndicatorVisible(x)  [UIApplication sharedApplication].networkActivityIndicatorVisible = x
+#define KNetworkActivityIndicatorVisible(x)  [UIApplication sharedApplication].networkActivityIndicatorVisible = x
 
 #define KWindow [UIApplication sharedApplication].keyWindow
 
-#define KBackView         for (UIView *item in kWindow.subviews) { \
+#define KBackView         for (UIView *item in KWindow.subviews) { \
 if(item.tag == 10000) \
 { \
 [item removeFromSuperview]; \
@@ -152,6 +152,15 @@ item.alpha = 0.0; \
 
 // 判断是否为iPhone 6Plus/6sPlus
 #define iPhone6Plus_6sPlus [[UIScreen mainScreen] bounds].size.width == 414.0f && [[UIScreen mainScreen] bounds].size.height == 736.0f
+
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+//字体适配
+#define SizeScale (KSCREEN_WIDTH == 375 ? 1 : (KSCREEN_WIDTH < 375 ? 0.85 : 1.1))
+#define KFontSize(value) [UIFont systemFontOfSize:value * SizeScale]
+// app自定义控件高度设置
+#define KNavHeight        (iPhoneX ? 88.f : 64.f)
+#define KTabBarHeight     (iPhoneX ? 83.f : 49.f)
 
 //获取系统版本
 #define IOS_SYSTEM_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
