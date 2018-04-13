@@ -69,7 +69,7 @@
 [kWindow  makeToast:str duration:0.6 position:CSToastPositionCenter style:style];\
 kWindow.userInteractionEnabled = NO; \
 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{\
-        KWindow.userInteractionEnabled = YES;\
+KWindow.userInteractionEnabled = YES;\
 });\
 
 //10.设置加载提示框（第三方框架：MBProgressHUD）
